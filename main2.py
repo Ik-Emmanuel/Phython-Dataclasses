@@ -9,10 +9,11 @@ class Person:
     strength: int = 100
 
     def __post_init__(self):
-        self.sort_index = self.age
+        # self.sort_index = self.age
+        object.__setattr__(self, 'sort_index', self.strength) #for frozen dataclasses
 
 person1 = Person("Kelly", "Clarkson", 20)
-person2 = Person("Joe", "Regan", 30)
+person2 = Person("Joe", "Regan", 30, 200)
 person3 = Person("Melly", "Buns", 40)
 
 print(person2)
